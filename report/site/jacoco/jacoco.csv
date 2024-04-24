@@ -1,0 +1,11 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+sprint6_mockito,com.example.constants,Constants,0,10,0,0,0,2,0,1,0,1
+sprint6_mockito,com.example,Feline,0,15,0,0,0,5,0,5,0,5
+sprint6_mockito,com.example,Animal,9,11,2,2,3,4,3,2,1,2
+sprint6_mockito,com.example,Lion,0,40,0,4,0,13,0,7,0,5
+sprint6_mockito,com.example,Cat,0,12,0,0,0,5,0,3,0,3
+sprint6_mockito,com.example.constants.enums,Food,3,67,0,0,1,9,1,2,1,2
+sprint6_mockito,com.example.constants.enums,Sex,3,45,0,0,1,7,1,2,1,2
+sprint6_mockito,com.example.constants.enums,AnimalKind,3,34,0,0,1,6,1,2,1,2
+sprint6_mockito,com.example.constants.enums,AnimalSound,3,23,0,0,1,5,1,2,1,2
+sprint6_mockito,com.example.constants.enums,Family,3,100,0,0,1,12,1,2,1,2
