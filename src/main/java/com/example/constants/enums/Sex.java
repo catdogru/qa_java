@@ -2,7 +2,8 @@ package com.example.constants.enums;
 
 public enum Sex {
     MALE("Самец"),
-    FEMALE("Самка");
+    FEMALE("Самка"),
+    UNKNOWN("Неизвестно");
 
     private final String sex;
 

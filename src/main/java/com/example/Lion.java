@@ -11,8 +11,12 @@ import static com.example.constants.enums.Sex.FEMALE;
 import static com.example.constants.enums.Sex.MALE;
 
 public class Lion {
-
+    Feline feline;
     boolean hasMane;
+
+    public Lion(Feline feline) {
+        this.feline = feline;
+    }
 
     public Lion(Sex sex) throws Exception {
         if (MALE == sex) {
@@ -23,8 +27,6 @@ public class Lion {
             throw new Exception(UNKNOWN_SEX_VALUE_EXCEPTION_MESSAGE);
         }
     }
-
-    Feline feline = new Feline();
 
     public int getKittens() {
         return feline.getKittens();
