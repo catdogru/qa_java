@@ -1,6 +1,11 @@
 package com.example;
 
+import com.example.constants.enums.AnimalSound;
+import com.example.constants.enums.Food;
+
 import java.util.List;
+
+import static com.example.constants.enums.AnimalSound.CAT_SOUND;
 
 public class Cat {
 
@@ -10,12 +15,11 @@ public class Cat {
         this.predator = feline;
     }
 
-    public String getSound() {
-        return "Мяу";
+    public AnimalSound getSound() {
+        return CAT_SOUND;
     }
 
-    public List<String> getFood() throws Exception {
+    public List<Food> getFood() throws Exception {
         return predator.eatMeat();
     }
-
 }
