@@ -1,22 +1,30 @@
 package com.example;
 
+import com.example.constants.enums.Food;
+import com.example.constants.enums.Sex;
+
 import java.util.List;
 
-public class Lion {
+import static com.example.constants.Constants.ExceptionMessages.UNKNOWN_SEX_VALUE_EXCEPTION_MESSAGE;
+import static com.example.constants.enums.AnimalKind.PREDATOR;
+import static com.example.constants.enums.Sex.FEMALE;
+import static com.example.constants.enums.Sex.MALE;
 
+public class Lion {
+    Feline feline;
     boolean hasMane;
 
-    public Lion(String sex) throws Exception {
-        if ("Самец".equals(sex)) {
+    public Lion(Sex sex, Feline feline) throws Exception {
+        this.feline = feline;
+
+        if (MALE == sex) {
             hasMane = true;
-        } else if ("Самка".equals(sex)) {
+        } else if (FEMALE == sex) {
             hasMane = false;
         } else {
-            throw new Exception("Используйте допустимые значения пола животного - самей или самка");
+            throw new Exception(UNKNOWN_SEX_VALUE_EXCEPTION_MESSAGE);
         }
     }
-
-    Feline feline = new Feline();
 
     public int getKittens() {
         return feline.getKittens();
@@ -26,7 +34,7 @@ public class Lion {
         return hasMane;
     }
 
-    public List<String> getFood() throws Exception {
-        return feline.getFood("Хищник");
+    public List<Food> getFood() throws Exception {
+        return feline.getFood(PREDATOR);
     }
 }
