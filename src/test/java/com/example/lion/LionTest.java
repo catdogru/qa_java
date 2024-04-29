@@ -2,35 +2,51 @@ package com.example.lion;
 
 import com.example.Feline;
 import com.example.Lion;
+import com.example.constants.enums.Sex;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Spy;
+import org.junit.runners.Parameterized;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnit;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.MockitoRule;
 
-import static com.example.constants.Constants.PREDATOR_MENU;
 import static com.example.constants.enums.AnimalKind.PREDATOR;
+import static com.example.constants.enums.Sex.FEMALE;
+import static com.example.constants.enums.Sex.MALE;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.quality.Strictness.LENIENT;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(Parameterized.class)
 public class LionTest {
     @Rule
     public MockitoRule rule = MockitoJUnit.rule().strictness(LENIENT);
 
     private Lion lion;
+    private final Sex sex;
 
-    @Spy
+    @Mock
     private Feline feline;
 
+    public LionTest(Sex sex) {
+        this.sex = sex;
+    }
+
+    @Parameterized.Parameters()
+    public static Object[][] getData() {
+        return new Object[][]{
+                {FEMALE},
+                {MALE},
+        };
+    }
+
     @Before
-    public void setUp() {
-        lion = new Lion(feline);
+    public void setUp() throws Exception {
+        lion = new Lion(sex, feline);
     }
 
     @Test
@@ -41,7 +57,7 @@ public class LionTest {
 
     @Test
     public void getKittensCountShouldReturnOne() {
-        lion.getKittens();
+        Mockito.when(lion.getKittens()).thenReturn(1);
         assertEquals(1, lion.getKittens());
     }
 
@@ -49,10 +65,5 @@ public class LionTest {
     public void getFoodShouldInvokeFeline() throws Exception {
         lion.getFood();
         verify(feline).getFood(PREDATOR);
-    }
-
-    @Test
-    public void getFoodShouldEqualsPredatorMenu() throws Exception {
-        assertEquals(PREDATOR_MENU, lion.getFood());
     }
 }

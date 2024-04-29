@@ -8,7 +8,6 @@ import java.util.List;
 import static com.example.constants.enums.AnimalSound.CAT_SOUND;
 
 public class Cat {
-
     Predator predator;
 
     public Cat(Feline feline) {

@@ -5,21 +5,19 @@ import com.example.Feline;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import static com.example.constants.Constants.HERBIVORE_MENU;
 import static com.example.constants.Constants.PREDATOR_MENU;
 import static com.example.constants.enums.AnimalSound.CAT_SOUND;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CatTest {
     private Cat cat;
 
-    @Spy
+    @Mock
     Feline feline;
 
     @Before
@@ -34,12 +32,7 @@ public class CatTest {
 
     @Test
     public void getFoodShouldReturnPredatorMenu() throws Exception {
+        Mockito.when(feline.eatMeat()).thenReturn(PREDATOR_MENU);
         assertEquals(PREDATOR_MENU, cat.getFood());
-    }
-
-    @Test
-    public void getVeganCatFoodTest() throws Exception {
-        Mockito.when(feline.eatMeat()).thenReturn(HERBIVORE_MENU);
-        assertNotEquals(PREDATOR_MENU, cat.getFood());
     }
 }

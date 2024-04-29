@@ -14,11 +14,9 @@ public class Lion {
     Feline feline;
     boolean hasMane;
 
-    public Lion(Feline feline) {
+    public Lion(Sex sex, Feline feline) throws Exception {
         this.feline = feline;
-    }
 
-    public Lion(Sex sex) throws Exception {
         if (MALE == sex) {
             hasMane = true;
         } else if (FEMALE == sex) {

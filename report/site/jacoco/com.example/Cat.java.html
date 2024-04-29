@@ -8,19 +8,18 @@ import java.util.List;
 import static com.example.constants.enums.AnimalSound.CAT_SOUND;
 
 public class Cat {
-
     Predator predator;
 
-<span class="fc" id="L14">    public Cat(Feline feline) {</span>
-<span class="fc" id="L15">        this.predator = feline;</span>
-<span class="fc" id="L16">    }</span>
+<span class="fc" id="L13">    public Cat(Feline feline) {</span>
+<span class="fc" id="L14">        this.predator = feline;</span>
+<span class="fc" id="L15">    }</span>
 
     public AnimalSound getSound() {
-<span class="fc" id="L19">        return CAT_SOUND;</span>
+<span class="fc" id="L18">        return CAT_SOUND;</span>
     }
 
     public List&lt;Food&gt; getFood() throws Exception {
-<span class="fc" id="L23">        return predator.eatMeat();</span>
+<span class="fc" id="L22">        return predator.eatMeat();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
